@@ -911,13 +911,10 @@ color : #6CC0FF;
 
 }
 
-.top
-{
+.top {
     position:fixed;
     bottom: 50px;
     right: 50px;
-
-
 }
 
 #doch {
