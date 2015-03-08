@@ -920,3 +920,33 @@ color : #6CC0FF;
 
 }
 
+#doch {
+
+    position: absolute;
+    left:160px;
+}
+
+#do {
+    position:  absolute;
+    left:160px;
+}
+
+#do:hover {
+    opacity: 0;
+}
+
+
+
+#learnch {
+    left:160px;
+    position: absolute;
+}
+
+#learn {
+    left:160px;
+    position:  absolute;
+}
+
+#learn:hover {
+    opacity: 0;
+}
