@@ -1,0 +1,139 @@
+/* stand Alone page CSS*/
+
+/* 전체 테두리*/
+#contents{
+    margin-top: 20px;
+}
+
+.button-area{
+    margin-bottom: 120px;
+}
+/* Code 부분 */
+.code-btn-left{
+    margin-top: 20px;
+    float: left;
+}
+.code-btn-right{
+    margin-top: 20px;
+    float: right;
+}
+
+#code{
+    resize: none;
+}
+
+/* Renderer 부분 */
+#render-area{
+    margin: 50px;
+}
+
+#renderer{
+    width: 100%;
+}
+
+.navbar-default {
+    border-color: transparent;
+    background-color: #222;
+}
+
+.navbar-default .navbar-brand {
+    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+    color: #fff;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-brand.active {
+    color: #fff;
+}
+
+.navbar-default .navbar-collapse {
+    border-color: rgba(255,255,255,.02);
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #fff;
+    background-color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #fff;
+}
+
+.navbar-default .nav li a {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.navbar-default .nav li a:hover,
+.navbar-default .nav li a:focus {
+    outline: 0;
+    color: #fff;
+    color : lightblue;
+
+}
+
+.navbar-default .navbar-nav>.active>a {
+    border-radius: 0;
+    color: #fff;
+    background-color: #6CC0FF;
+}
+
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #fff;
+    background-color: #6CC0FF;
+}
+
+@media(min-width:768px) {
+    .navbar-default {
+        padding: 10px 0;
+        border: 0;
+        /*background-color: transparent;*/
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+    }
+
+    .navbar-default .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+    }
+
+    .navbar-default .navbar-nav>.active>a {
+        border-radius: 35px;
+
+    }
+
+    .navbar-default.navbar-shrink {
+        padding: 10px 0;
+        background-color: #222;
+    }
+
+    .navbar-default.navbar-shrink .navbar-brand {
+        font-size: 1.5em;
+    }
+}
+.logo1{
+   float : left;
+
+}
+.logo2{
+text-align : right;
+    margin-top:5px;
+    float : right;
+}
+.practice{
+    margin:100px;
+}
