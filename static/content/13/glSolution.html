@@ -1,0 +1,12 @@
+/******** 12단계 : Orthographic Camera  ********/
+
+void Display()
+{
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(10.0, -10.0,-10.0, 10.0, 8.0, 15.0);
+    glMatrixMode(GL_MODELVIEW);
+    glEnable(GL_DEPTH_TEST);
+}
+
+// 카메라만 표현

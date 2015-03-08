@@ -1,0 +1,137 @@
+<%- include header.ejs %>
+<style type="text/css">
+    #sCarousel .item img {
+        display: block;
+        width: 95%;
+        height: auto;
+    }
+</style>
+
+
+
+<script type="text/javascript">
+
+    /* 캐러셀 시작 */
+    $(document).ready(function() {
+
+        $("#sCarousel").owlCarousel({
+
+            navigation : false, // Show next and prev buttons
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem:true,
+            autoPlay: true
+
+
+        });
+
+    });
+
+    /* 진행상황 업데이트 */
+    $(document).ready( function() {
+        urlReq.get('/tutorial/progressInfo', {}, function(result) {
+
+            var progressBar = $('.progress-bar'),
+                data = result.data;
+
+            if( result.error ) {
+                progressBar.each( function() {
+                    var current = $(this);
+                    current.css({ width: '0%' });
+                    current.find('span').html('');
+                })
+
+            }
+            else {
+                progressBar.eq(0).attr('data-chapterName', '2D');
+                progressBar.eq(1).attr('data-chapterName', '3D');
+                progressBar.eq(2).attr('data-chapterName', '3D+');
+
+                progressBar.each( function() {
+                    var current = $(this);
+                    var item = data.numericInfo[ current.attr('data-chaptername' ) ];
+
+                    current.css({ width : item+'%' });
+                    current.find('span').html( item+'%' );
+                })
+
+            }
+        })
+    })
+</script>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<!--<div class="jumbotron">-->
+    <!--<div class="container">-->
+        <!--<h1>GLove ::</h1>-->
+        <!--<br/>-->
+        <!--<img src="http://placehold.it/1080x300"/>-->
+        <!--<br/>-->
+        <!--<br/>-->
+        <!--<p>Welcome to Online Graphics Education Project.<br>You can learn computer graphics theory based on OpenGL using block coding.</p>-->
+        <!--<p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<div class="container" style="margin-top:60px;">
+    <h1><b>GLUT :: Graphics Learning for User Tutorial</b></h1>
+    <div id="sCarousel" class="owl-carousel">
+        <div class="item"><img src="/static/images/carousel_bg1.jpg" alt="Main Banner" class="img-rounded"> </div>
+        <div class="item"><img src="/static/images/carousel_bg2.jpg" alt="Sub Banner" class="img-rounded"></div>
+        <div class="item"><img src="/static/images/carousel_bg3.jpg" alt="Sub Banner" class="img-rounded"></div>
+    </div>
+</div>
+
+<br /><br />
+
+<div class="container">
+    <!-- Example row of columns -->
+        <div class="row">
+        <div class="col-md-4">
+            <img src="/static/images/img_2d_sq.jpg" width="300" class="img-rounded" />
+            <div class="progress progress-striped" style="width:300px; margin-top:5px;">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                    <span>30%</span>
+                </div>
+            </div>
+
+            <h2>2 Dimension</h2>
+            <p>You can 2 Dimensional graphics theory and practice in this chapter. If you don`t know graphics programming, you must start this chapter. Those are that draw point and line, triangle, and rectangle based on Vertex.</p>
+            <!--<p><a class="btn btn-default" href="#">View details &raquo;</a></p>-->
+        </div>
+        <div class="col-md-4">
+            <img src="/static/images/img_3d_sq.jpg" width="300" class="img-rounded" />
+            <div class="progress progress-striped" style="width:300px; margin-top:5px;">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                    <span>90%</span>
+                </div>
+            </div>
+
+            <h2>3 Dimension</h2>
+            <p>If you learned 2D part, you can learn 3 Dimensional graphics part. In this part, you learn Low-API and High-API, and CTM(Current Transformation Matrix) to understand translate, rotate, and scale.</p>
+            <!--<p><a class="btn btn-default" href="#">View details &raquo;</a></p>-->
+
+        </div>
+        <div class="col-md-4">
+            <img src="/static/images/img_3da_sq.jpg" width="300" class="img-rounded" />
+            <div class="progress progress-striped" style="width:300px; margin-top:5px;">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                    <span>75%</span>
+                </div>
+            </div>
+
+            <h2>3D Advanced</h2>
+            <p>This part include viewport using camera, and light.</p>
+            <!--<p><a class="btn btn-default" href="#">View details &raquo;</a></p>-->
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p><b>&copy; Copyright(c)2015 by Team 25, Global Media. All pictures cannot be copied without permission.  </b></p>
+    </footer>
+</div> <!-- /container -->
+
+<%- include footer.ejs %>

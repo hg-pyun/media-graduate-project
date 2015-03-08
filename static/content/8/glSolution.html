@@ -1,0 +1,16 @@
+/******** 8단계 : Trnaslate ********/
+
+void Display()
+{
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glutSolidCube(1);
+    glTranslatef(3.0,0,0);
+    glutSolidCube(2);
+    glLoadIdentity();	// CTM 행렬 초기화
+    glTranslatef(-3,0,0);
+    glTranslatef(0,3,0);
+    glTranslated(0,-1,0);	// OpenGL 에서는 Translate 함수만 사용하여 이동 가능
+    glutSolidCube(1);
+
+    glFlush();
+}

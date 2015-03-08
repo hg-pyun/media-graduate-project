@@ -1,0 +1,21 @@
+/******** 4단계 : 사각형 그리기 ********/
+
+void Display()
+{
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glBegin(GL_POLYGON);
+        glVertex3f(-2.0, 2.0, 0.0); // 좌 상단
+        glVertex3f(-2.0, -2.0, 0.0); // 좌 하단
+        glVertex3f(2.0, -2.0, 0.0); // 우 하단
+        glVertex3f(2.0, 2.0, 0.0); // 우 상단
+    glEnd();
+
+    glFlush();
+}
+
+/***** 추가 설명 *****/
+// GL_LINE : 두개의 정점들을 이은 선분
+// GL_LINE_STRIP : 연결된 선분
+// GL_LINE_LOOP : 시작점과 끝점을 이은 선분
+// GL_TRIANGLES : 삼각형 전용 glBegin() 파라미터
+// + GL_POLYGON : n각형 이상을 그릴 때 사용하는 glBegin() 파라미터

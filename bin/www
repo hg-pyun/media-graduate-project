@@ -1,0 +1,114 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('ssmweb:server');
+var http = require('http');
+
+var cluster = require('cluster'),
+    numCluster = 8; // 클러스터 갯수.
+
+/**
+ * Get port from environment and store in Express.
+ */
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+
+/**
+ * 서비스 클러스터링
+ */
+if( cluster.isMaster === true ) {
+
+    // fork childs.
+    for( var i = 0; i < numCluster; i++) {
+        cluster.fork();
+    }
+
+    // child 종료시 처리.
+    cluster.on('exit', function( worker , code, signal ) {
+        console.info( worker.id + ' DEAD!! ');
+        cluster.fork();
+    })
+
+}
+else {
+    var server = http.createServer(app);
+    server.listen(port, function() {
+        var message = ' WORKER ' +
+                    cluster.worker.workerID +
+                    ' ( PID : \u001b[96m' + cluster.worker.process.pid + '\u001b[0m ) ' +
+                    ' \u001b[32mONLINE\u001b[0m ';
+        console.info( message );
+    });
+    server.on('error', onError);
+
+}
+
+
+
+
+
+
+//-----------------------------------
+// 필요함수 모음
+//-----------------------------------
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

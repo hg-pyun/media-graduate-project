@@ -1,0 +1,17 @@
+/******** 12단계 : Camera Position  ********/
+
+void Display()
+{
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(60,1,1,100);
+    glMatrixMode(GL_MODELVIEW);
+    glEnable(GL_DEPTH_TEST);
+
+    // 카메라 세팅
+   glLoadIdentity();
+    gluLookAt(0,0,-10,0,1,0,0,1,0); // eyeX, eyeY, eyeZ, centerX, centerY, centerZ
+                                      // upX, upY, upZ
+    // 사각형 그리기...
+glFlush();
+}

@@ -1,0 +1,12 @@
+/******** 12단계 : Perspective Camera  ********/
+
+void Display()
+{
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(30,1,8,15);
+    glMatrixMode(GL_MODELVIEW);
+    glEnable(GL_DEPTH_TEST);
+}
+
+// 카메라만 표현
