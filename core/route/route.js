@@ -9,7 +9,8 @@ var rMain = require('./main'),
     rBoard = require('./board'),
     rFreedraw = require('./freedraw'),
     rGallery = require('./gallery'),
-    errorController = require('../controller/errorCont');
+    errorController = require('../controller/errorCont'),
+    rIntro = require('./intro');
 
 /**
  * 라우팅 정의 파일. ( 세세한 라우팅은 해당 파일이 가지고있다. )
@@ -24,6 +25,9 @@ var routeMapper = function(app) {
     app.use('/board', rBoard);
     app.use('/freedraw', rFreedraw);
     app.use('/gallery', rGallery);
+
+    // 메인 페이지 추가
+    app.use('/intro', rIntro);
 
 
     // 에러 처리를 위한 미들웨어 & 컨트롤러
