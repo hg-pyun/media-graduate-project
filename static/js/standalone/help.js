@@ -3,7 +3,10 @@
  */
 $(function(){
     $('#helpBtn').on('click',function(){
-        console.log('helpBtn clicked');
-        $('#helpModal').modal('show');
+        //console.log('helpBtn clicked');
+        $('#helpModal').modal({
+            show : true,
+            backdrop : static
+        });
     });
 });
