@@ -5,7 +5,7 @@
     <title>Stand Alone Page</title>
     <!-- Import Javascript files -->
     <script src="../static/js/freeDraw/processing.min.js"></script>
-    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/jquery-1.11.2.min.js"></script>
     <script src="../static/js/bootstrap.js"></script>
     <script src="../static/../static/js/standalone/standAloneCustom.js"></script>
     <script src="../static/js/standalone/help.js"></script>
@@ -95,36 +95,38 @@
                 <canvas id="renderer"></canvas>
             </div>
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title">단축키 목록 :: Short Cut List</h4>
-                    </div>
-                    <div class="modal-body">
+        </div>
+    </div>
+<!-- Modal -->
+<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="tutorialModalWindow" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">단축키 목록 :: Short Cut List</h4>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>
+                        문자열 검색
                         <ul>
-                            <li>
-                                문자열 검색
-                                <ul>
-                                    <li>Ctrl + F : Searching Word</li>
-                                    <li>Ctrl + G : Find Next</li>
-                                    <li>Ctrl + Shift + G : Find Previous</li>
-                                    <li>Ctrl + Shift + F : Replace</li>
-                                    <li>Ctrl + Shift + R : Replace all</li>
-                                </ul>
-                            </li>
-                            <li>Ctrl + Space : Code Assist</li>
-                            <li>F11 : 전체 화면 모드 / 창 모드 전환</li>
+                            <li>Ctrl + F : Searching Word</li>
+                            <li>Ctrl + G : Find Next</li>
+                            <li>Ctrl + Shift + G : Find Previous</li>
+                            <li>Ctrl + Shift + F : Replace</li>
+                            <li>Ctrl + Shift + R : Replace all</li>
                         </ul>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-</div>
+                    </li>
+                    <li>Ctrl + Space : Code Assist</li>
+                    <li>F11 : 전체 화면 모드 / 창 모드 전환</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 </body>
 </html>
