@@ -8,6 +8,7 @@
  */
 
 module.exports = {
+
     host : '110.10.174.169',
     port : 3306,
     userid : 'ssm',
@@ -15,14 +16,14 @@ module.exports = {
     userdb : 'ssm',
     dbPoolSize : 10
 
-    /*
+/*
     host : 'ssm.dude.kr',
     port : 3306,
     userid : 'ssm',
     userpwd : 'ssm2014',
     userdb : 'ssm',
     dbPoolSize : 10
-    */
+*/
     /*
     host : '211.189.20.28',
     port : 3306,
